@@ -1,10 +1,10 @@
 # Paytm integration using Golang 
 
-####Requiremets : 
+## Requiremets : 
  
 * i.  Provide the value for PAYTM_MERCHANT_KEY in .env file. (The value for MERCHANT_KEY will be provided after the onboarding process is completed).
      
-####Installation steps:
+## Installation steps:
 
 * i. For successful transaction, Paytm generates checksumhash and verifies this checksumhash on  merchant server.
      
