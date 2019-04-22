@@ -1,6 +1,6 @@
 # Paytm integration using Golang 
 
-<img src="https://raw.githubusercontent.com/Mindinventory/Golang-PayU/master/payU.png">
+<img src="https://raw.githubusercontent.com/Mindinventory/Golang-Paytm/master/paytm-new.png">
 
 
 ## Requiremets : 
