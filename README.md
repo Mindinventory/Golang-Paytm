@@ -1,5 +1,8 @@
 # Paytm integration using Golang 
 
+<img src="https://raw.githubusercontent.com/Mindinventory/Golang-PayU/master/payU.png">
+
+
 ## Requiremets : 
  
 * i.  Provide the value for PAYTM_MERCHANT_KEY in .env file. (The value for MERCHANT_KEY will be provided after the onboarding process is completed).
@@ -28,6 +31,12 @@
   https://developer.paytm.com/docs/v1/payment-gateway  
      
   
+## LICENSE!
+
+PayTm integration using Golang is [MIT-licensed](https://github.com/mindinventory/Golang-Paytm/blob/master/LICENSE)
+
+## Let us know!
+We’d be really happy if you sent us links to your projects where you use our component. Just send an email to sales@mindinventory.com And do let us know if you have any questions or suggestion regarding our work.
 
 
 
