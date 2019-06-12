@@ -1,9 +1,8 @@
 # Paytm integration using Golang 
 
-<img src="https://raw.githubusercontent.com/Mindinventory/Golang-Paytm/master/paytm-new.png">
+Read about how we made this on our blog (https://www.mindinventory.com/blog/paytm-integration-using-golang/)
 
-## Official Blog URL:
-https://www.mindinventory.com/blog/paytm-integration-using-golang/
+<img src="https://raw.githubusercontent.com/Mindinventory/Golang-Paytm/master/paytm-new.png">
 
 ## Requiremets : 
  
