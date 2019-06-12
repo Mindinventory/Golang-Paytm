@@ -4,7 +4,7 @@ Read about how we made this on our blog (https://www.mindinventory.com/blog/payt
 
 <img src="https://raw.githubusercontent.com/Mindinventory/Golang-Paytm/master/paytm-new.png">
 
-## Requiremets : 
+## Requirements : 
  
 * i.  Provide the value for PAYTM_MERCHANT_KEY in .env file. (The value for MERCHANT_KEY will be provided after the onboarding process is completed).
      
