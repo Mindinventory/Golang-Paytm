@@ -9,6 +9,7 @@ import (
 	"paytm/paytm"
 )
 
+// Paytm order response struct
 type PaytmOrderResponse struct {
 	MID              string `json:"MID"`
 	ORDER_ID         string `json:"ORDER_ID"`
@@ -24,15 +25,18 @@ type PaytmOrderResponse struct {
 	CHECKSUMHASH     string `json:"CHECKSUMHASH"`
 }
 
+// Message function
 func Message(status int, message string) map[string]interface{} {
 	return map[string]interface{}{"status": status, "message": message}
 }
 
+// Common response function
 func Respond(w http.ResponseWriter, data map[string]interface{}) {
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(data)
 }
 
+// Paytm order response function
 func paytmOrderResponseFun(orderId string, custId string, mobileId string, email string, txnAmount string, website string, callbackUrl string, checksum string, channelId string, verifiedBy string, isUserVerified string, paymentModeOnly string, authMode string, paymentTypeId string) PaytmOrderResponse {
 	res := PaytmOrderResponse{
 		MID:              os.Getenv("PAYTM_MID"),
@@ -51,6 +55,7 @@ func paytmOrderResponseFun(orderId string, custId string, mobileId string, email
 	return res
 }
 
+// Main function
 func main() {
 
 	e := godotenv.Load()
