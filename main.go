@@ -9,7 +9,7 @@ import (
 	"paytm/paytm"
 )
 
-// Paytm order is representing of paytm response structure
+// PaytmOrderResponse is representing of paytm response structure
 type PaytmOrderResponse struct {
 	MID              string `json:"MID"`
 	ORDER_ID         string `json:"ORDER_ID"`
@@ -30,7 +30,7 @@ func Message(status int, message string) map[string]interface{} {
 	return map[string]interface{}{"status": status, "message": message}
 }
 
-// Common response function
+// Respond common function
 func Respond(w http.ResponseWriter, data map[string]interface{}) {
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(data)
