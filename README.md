@@ -1,4 +1,8 @@
 # Quick Paytm Integration using Golang
+<a href="https://travis-ci.org/Mindinventory/Golang-Paytm" style="pointer-events: none;" target="_blank"><img src="https://travis-ci.org/Mindinventory/Golang-Paytm.svg?branch=master"></a>
+<a href="https://godoc.org/fyne.io/fyne" style="pointer-events: none;" target="_blank"><img src="https://img.shields.io/badge/go-documentation-blue.svg"></a>
+<a href="https://goreportcard.com/report/github.com/Mindinventory/Golang-Paytm" style="pointer-events: none;" target="_blank"><img src="https://goreportcard.com/badge/github.com/Mindinventory/Golang-Paytm"></a>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/mindinventory/Golang-Paytm/blob/master/LICENSE)
 
 Paytm is India’s most popular and widely accepted Payment Gateway. Moreover, integration of it to your website or mobile app is simple enough if you possess Paytm Merchant Key. Though, paytm integration is available for various platforms, integrating it in the Golang might not be known to all. 
 
