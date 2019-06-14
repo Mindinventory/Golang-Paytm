@@ -16,12 +16,14 @@ import (
 	"time"
 )
 
+// Crypter is structure of paytm
 type Crypter struct {
 	key    []byte
 	iv     []byte
 	cipher *openssl.Cipher
 }
 
+// NewCrypter is function of paytm
 func NewCrypter(key []byte, iv []byte) (*Crypter, error) {
 	cipher, err := openssl.GetCipherByName("aes-128-cbc")
 	if err != nil {
@@ -31,6 +33,7 @@ func NewCrypter(key []byte, iv []byte) (*Crypter, error) {
 	return &Crypter{key, iv, cipher}, nil
 }
 
+// Encrypt is function of encryption algorithm
 func (c *Crypter) Encrypt(input []byte) ([]byte, error) {
 	ctx, err := openssl.NewEncryptionCipherCtx(c.cipher, nil, c.key, c.iv)
 	if err != nil {
@@ -51,6 +54,7 @@ func (c *Crypter) Encrypt(input []byte) ([]byte, error) {
 	return cipherbytes, nil
 }
 
+// Decrypt is function of decryption key
 func (c *Crypter) Decrypt(input []byte) ([]byte, error) {
 	ctx, err := openssl.NewDecryptionCipherCtx(c.cipher, nil, c.key, c.iv)
 	if err != nil {
@@ -71,6 +75,7 @@ func (c *Crypter) Decrypt(input []byte) ([]byte, error) {
 	return cipherbytes, nil
 }
 
+// GetChecksumFromArray is function to generate checksum key
 func GetChecksumFromArray(paramsMap map[string]string) (checksum string, err error) {
 	var keys = make([]string, 0, 0)
 	for k, v := range paramsMap {
@@ -98,6 +103,7 @@ func GetChecksumFromArray(paramsMap map[string]string) (checksum string, err err
 	return
 }
 
+// VerifyCheckum is function to verify checksum
 func VerifyCheckum(paramsMap map[string]string, checksum string) (ok bool) {
 	delete(paramsMap, "CHECKSUMHASH")
 	var keys = make([]string, 0, 0)
@@ -137,6 +143,7 @@ func VerifyCheckum(paramsMap map[string]string, checksum string) (ok bool) {
 	return false
 }
 
+// Encrypt is function to encryption
 func Encrypt(input []byte) (output []byte, err error) {
 	iv := "@@@@&&&&####$$$$"
 	crypter, _ := NewCrypter([]byte(os.Getenv("PAYTM_MERCHANT_KEY")), []byte(iv))
@@ -144,6 +151,7 @@ func Encrypt(input []byte) (output []byte, err error) {
 	return
 }
 
+// Decrypt is function to decryption
 func Decrypt(input []byte) (output []byte, err error) {
 	iv := "@@@@&&&&####$$$$"
 	crypter, err := NewCrypter([]byte(os.Getenv("PAYTM_MERCHANT_KEY")), []byte(iv))
@@ -151,6 +159,7 @@ func Decrypt(input []byte) (output []byte, err error) {
 	return
 }
 
+// getArray2Str is function for convert array to string
 func getArray2Str(arrayList []string) (str string) {
 	findme := "REFUND"
 	findmepipe := "|"
@@ -171,6 +180,7 @@ func getArray2Str(arrayList []string) (str string) {
 	return
 }
 
+// getArray2StrForVerify is function for verify array to string
 func getArray2StrForVerify(arrayList []string) (str string) {
 	flag := 1
 	for _, v := range arrayList {
@@ -184,6 +194,7 @@ func getArray2StrForVerify(arrayList []string) (str string) {
 	return
 }
 
+// generateSalt is function for generate salt
 func generateSalt(length int) (salt string) {
 	rand.Seed(time.Now().UnixNano())
 	data := "AbcDE123IJKLMN67QRSTUVWXYZ"
@@ -196,6 +207,7 @@ func generateSalt(length int) (salt string) {
 	return
 }
 
+// GetTransactionStatus is function for get transaction status
 func GetTransactionStatus(orderId string, checksum string) (success bool, err error) {
 	var (
 		req  *http.Request
@@ -231,6 +243,7 @@ func GetTransactionStatus(orderId string, checksum string) (success bool, err er
 	return false, err
 }
 
+// TransactionStatus is function for check transaction status
 type TransactionStatus struct {
 	TXNID       string `json:"TXNID"`
 	BANKTXNID   string `json:"BANKTXNID"`
