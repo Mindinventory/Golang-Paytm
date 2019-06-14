@@ -9,7 +9,7 @@ import (
 	"paytm/paytm"
 )
 
-// Paytm order is representing of paytm response
+// Paytm order is representing of paytm response structure
 type PaytmOrderResponse struct {
 	MID              string `json:"MID"`
 	ORDER_ID         string `json:"ORDER_ID"`
