@@ -72,8 +72,8 @@ func main() {
 	var channelID = os.Getenv("PAYTM_CHANNEL_ID")
 	var website = os.Getenv("PAYTM_WEBSITE")
 
-	channelID = os.Getenv("PAYTM_CHANNEL_ID")
-	website = os.Getenv("PAYTM_WEBSITE")
+	//channelID = os.Getenv("PAYTM_CHANNEL_ID")
+	//website = os.Getenv("PAYTM_WEBSITE")
 
 	callbackUrl := os.Getenv("PAYMENT_MIDDLEWARE_URL")
 	paramList := map[string]string{
